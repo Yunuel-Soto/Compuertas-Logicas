@@ -25,15 +25,29 @@ def neurona(beets,epochas,tipo):
     if(tipo == "OR"):
         for i in range(epochas):
             num = random.randint(0,100)
-            result = funcion(num)
+            result = funcion(num, tipo)
             if(result == True):
                 correctas[cont] = num
                 cont = cont + 1
             if(cont == beets):
                return print(correctas)
             
-def funcion(num):
-    beets = matrizOR()
+    if(tipo == "AND"):
+        for i in range(epochas):
+            num = random.randint(0,100)
+            result = funcion(num, tipo)
+            if(result == True):
+                correctas[cont] = num
+                cont = cont + 1
+            if(cont == beets):
+                return print(correctas)
+        
+def funcion(num, tipo):
+    if(tipo == "AND"):
+        beets = matrizOR()
+    elif(tipo == "OR"):
+        beets = matrizOR()
+    #Matriz inicial
     newMatriz = [
       [0,0,False],
       [0,1, False],
